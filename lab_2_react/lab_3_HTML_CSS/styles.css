@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Source+Serif+4:wght@300;400;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --sidebar-bg: #e4e4e4;
+  --header-bg: #323b4c;
+  --accent: #323b4c;
+  --text-dark: #1a1a2e;
+  --text-muted: #4a5568;
+  --white: #ffffff;
+  --rule-color: #323b4c;
+  --bg-page: #d0d2d6;
+  --sidebar-width: 240px;
+  --photo-size: 180px;
+  --header-height: 125px;
+}
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg-page);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+/* ── RESUME SHELL ── */
+.resume-wrapper {
+  width: 880px;
+  max-width: 100%;
+  background: var(--white);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── TOP BAND (full width dark header) ── */
+.top-band {
+  position: relative;
+  background: var(--header-bg);
+  height: var(--header-height);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Photo — centered within the sidebar width, half hanging below top-band */
+.photo-wrap {
+  position: absolute;
+  left: calc(var(--sidebar-width) / 2);
+  transform: translateX(-50%);
+  bottom: calc(-1 * var(--photo-size) / 2);
+  width: var(--photo-size);
+  height: var(--photo-size);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--white);
+  background: #b0b8c0;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.28);
+}
+
+.photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 54px;
+  color: rgba(255,255,255,0.4);
+}
+
+.header-text {
+  position: absolute;
+  left: calc(var(--sidebar-width) + 32px);
+  right: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header-text h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 7px;
+}
+
+.header-text .subtitle {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 12.5px;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.58);
+  text-transform: uppercase;
+}
+
+/* ── LOWER SECTION ── */
+.lower-section {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: calc(var(--photo-size) / 2 + 26px);
+  padding-bottom: 40px;
+  padding-left: 22px;
+  padding-right: 20px;
+}
+
+.sidebar-section {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.sidebar-section:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-heading {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid rgba(0,0,0,0.18);
+}
+
+/* Contacts */
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.contact-list li .icon {
+  font-size: 13px;
+  margin-top: 1px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* Skills */
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-list li {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  padding-left: 13px;
+  position: relative;
+}
+
+.skill-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 11px;
+  top: 1px;
+}
+
+/* Languages */
+.lang-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.lang-list li {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding-left: 13px;
+  position: relative;
+}
+
+.lang-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 11px;
+  top: 1px;
+}
+
+/* ── MAIN CONTENT ── */
+.main-content {
+  flex: 1;
+  background: var(--white);
+}
+
+.cv-body {
+  padding: 30px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rule-color);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid #c4ccd8;
+}
+
+/* Profile */
+.profile-text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  text-align: justify;
+}
+
+/* Education */
+.edu-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.edu-info .edu-school {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--text-dark);
+}
+
+.edu-info .edu-degree {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  padding-left: 14px;
+}
+
+.edu-date {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+/* Courses */
+.course-entry {
+  margin-bottom: 16px;
+}
+
+.course-entry:last-child {
+  margin-bottom: 0;
+}
+
+.course-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--rule-color);
+  text-decoration: underline;
+  margin-bottom: 4px;
+}
+
+.course-meta {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.course-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 4px;
+}
+
+.course-bullets li {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+
+.course-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--rule-color);
+  font-size: 10px;
+  top: 3px;
+}
+
+/* Projects */
+.project-entry {
+  margin-bottom: 16px;
+}
+
+.project-entry:last-child {
+  margin-bottom: 0;
+}
+
+.project-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.project-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 4px;
+}
+
+.project-bullets li {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+
+.project-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--rule-color);
+  font-size: 10px;
+  top: 3px;
+}
+
+/* Print */
+@media print {
+  body { background: none; padding: 0; }
+  .resume-wrapper { box-shadow: none; width: 100%; }
+}
+
+@media (max-width: 680px) {
+  .lower-section { flex-direction: column; }
+  .sidebar { width: 100%; min-width: unset; padding-top: calc(var(--photo-size) / 2 + 20px); }
+  .photo-wrap { left: 50%; }
+  .header-text { left: 24px; }
+  .edu-entry { flex-direction: column; }
+}
